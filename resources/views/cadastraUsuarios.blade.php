@@ -13,13 +13,21 @@
 <body>
     <h1 class="w-full text-center text-xl font-bold"> Cadastro de Usuários</h1>
 
-  <form action="card-body max-w-md m-auto" method="post">
+  <form action="{{route('salva-usuario')}}" class="card-body max-w-md m-auto" method="post">
 
-    <div class="form-control">
+  @csrf
+  <div class="form-control">
+      <label class="label">
+        <span class="font-bold">Nome</span>
+      </label>
+      <input name="nome" type="text" placeholder="nome"
+              class="input input-bordered" required />
+    </div>
+  <div class="form-control">
       <label class="label">
         <span class="font-bold">Usuário</span>
       </label>
-      <input type="text" placeholder="usuario"
+      <input name="usuario" type="text" placeholder="usuario"
               class="input input-bordered" required />
     </div>
 
@@ -27,26 +35,29 @@
           <label class="label">
             <span class="font-bold">Bio</span>
           </label>
-          <input type="text" placeholder="bio"
+          <input name="bio" type="text" placeholder="bio"
                   class="input input-bordered" required />
         </div>
+
+        <div class="form-control">
+              <label class="label">
+                <span class="font-bold">Email</span>
+              </label>
+              <input name="email" type="email" placeholder="Email"
+                      class="input input-bordered" required />
+            </div>
 
               <div class="form-control">
             <label class="label">
               <span class="font-bold">Senha</span>
             </label>
-            <input type="password" placeholder="senha"
+            <input name="senha" type="password" placeholder="senha"
                     class="input input-bordered" required />
 
     </div>
 
-    <div class="form-control">
-      <label class="label">
-        <span class="font-bold">Email</span>
-      </label>
-      <input type="text" placeholder="Email"
-              class="input input-bordered" required />
-    </div>
+    <button type="submit" class="btn btn-success">Salvar</button>
+
 
   </form>
 
